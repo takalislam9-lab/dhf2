@@ -13,7 +13,7 @@ Todo el sitio está en un solo archivo: `index.html`, con el HTML, el CSS y el J
 ## Datos que hay que confirmar con el cliente antes de publicar
 | Dato | Dónde se cambia |
 |---|---|
-| Teléfono y WhatsApp | objeto `CONFIG` al final de `index.html` |
+| Teléfono y WhatsApp | ✅ 642 90 25 72 (en los enlaces del HTML y en `CONFIG`) |
 | Horario de apertura | `CONFIG.hours` |
 | Precios | sección `#servicios` (ahora son orientativos) |
 | Testimonios | sección `#opiniones` (ahora son textos de muestra: sustituir por reseñas reales de Google) |
