@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DHF Estilistas | Peluquería y Salón de Belleza en Alcobendas</title>
+  <meta name="description" content="DHF Estilistas: peluquería y salón de belleza premium en Calle del Fuego 33, Alcobendas. Cortes, balayage, mechas, keratina y peinados de novia. Valoración 4,9★ en Google. Reserva tu cita." />
+  <meta name="theme-color" content="#0f0f10" />
+
+  <!-- Open Graph (vista previa al compartir por WhatsApp / redes) -->
+  <meta property="og:title" content="DHF Estilistas · Alcobendas" />
+  <meta property="og:description" content="Peluquería y salón de belleza premium en Alcobendas. Reserva tu cita." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+
+  <!-- Tipografías: Playfair Display (títulos) + Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <!-- SEO local: datos estructurados del negocio -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "DHF Estilistas",
+    "image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle del Fuego, 33",
+      "addressLocality": "Alcobendas",
+      "postalCode": "28100",
+      "addressRegion": "Madrid",
+      "addressCountry": "ES"
+    },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "27" },
+    "sameAs": ["https://www.instagram.com/dhf.estilistas/"],
+    "priceRange": "€€"
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       1. VARIABLES DE DISEÑO (paleta, tipografía, espaciado)
+       ========================================================= */
+    :root {
+      --black: #0f0f10;          /* negro mate */
+      --charcoal: #18181a;       /* gris carbón */
+      --charcoal-2: #222225;
+      --line: rgba(255, 255, 255, 0.09);
+      --white: #ffffff;
+      --text: #e9e6e1;           /* blanco roto para lectura cómoda */
+      --muted: #a09a91;
+      --gold: #c5a46d;           /* oro viejo */
+      --gold-light: #dcc294;
+      --gold-dark: #9c7c47;
+      --radius: 14px;
+      --radius-pill: 999px;
+      --font-title: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --container: 1180px;
+      --header-h: 76px;
+      --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+
+    /* =========================================================
+       2. RESET Y BASE
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+
+    .container { width: min(var(--container), 100% - 40px); margin-inline: auto; }
+    .section { padding: clamp(80px, 11vw, 140px) 0; }
+
+    /* Encabezados de sección */
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-size: .75rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--gold); }
+    .section-title {
+      font-family: var(--font-title); font-weight: 400;
+      font-size: clamp(2.1rem, 4.6vw, 3.4rem); line-height: 1.12;
+      color: var(--white); margin: 18px 0 20px;
+    }
+    .section-title em { color: var(--gold-light); font-style: italic; }
+    .section-lead { color: var(--muted); max-width: 620px; font-size: 1.05rem; }
+    .section-head { margin-bottom: 60px; }
+    .section-head.center { text-align: center; }
+    .section-head.center .section-lead { margin-inline: auto; }
+    .section-head.center .eyebrow::after { content: ""; width: 34px; height: 1px; background: var(--gold); }
+
+    /* =========================================================
+       3. BOTONES
+       ========================================================= */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 15px 30px; border-radius: var(--radius-pill);
+      font-size: .9rem; font-weight: 500; letter-spacing: .06em;
+      transition: transform .3s var(--ease), background .3s, color .3s, box-shadow .3s, border-color .3s;
+      white-space: nowrap;
+    }
+    .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-dark));
+      color: #1a1408;
+      box-shadow: 0 10px 30px -10px rgba(197, 164, 109, .55);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -12px rgba(197, 164, 109, .75); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.35); color: var(--white); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+    .btn-whatsapp { background: #25d366; color: #06280f; }
+    .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -12px rgba(37, 211, 102, .6); }
+
+    /* =========================================================
+       4. HEADER / NAVEGACIÓN
+       ========================================================= */
+    .header {
+      position: fixed; inset: 0 0 auto 0; z-index: 100;
+      height: var(--header-h);
+      display: flex; align-items: center;
+      transition: background .4s, border-color .4s, backdrop-filter .4s;
+      border-bottom: 1px solid transparent;
+    }
+    .header.scrolled {
+      background: rgba(15, 15, 16, .88);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: flex; align-items: baseline; gap: 10px; line-height: 1; }
+    .logo-mark { font-family: var(--font-title); font-size: 1.85rem; color: var(--white); letter-spacing: .04em; }
+    .logo-mark span { color: var(--gold); }
+    .logo-sub { font-size: .62rem; letter-spacing: .38em; text-transform: uppercase; color: var(--muted); }
+
+    .nav-links { display: flex; align-items: center; gap: 34px; }
+    .nav-links a {
+      font-size: .85rem; letter-spacing: .08em; color: var(--text);
+      position: relative; padding: 6px 0; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+      background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .35s var(--ease);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); transform-origin: left; }
+    .nav-cta { padding: 11px 22px; font-size: .8rem; }
+    .nav-links .mobile-only { display: none; }
+    .nav-links a.btn { padding: 15px 30px; color: #1a1408; }
+    .nav-links a.btn::after { display: none; }
+
+    /* Botón hamburguesa (solo móvil) */
+    .menu-toggle { display: none; width: 44px; height: 44px; position: relative; z-index: 120; }
+    .menu-toggle span {
+      position: absolute; left: 10px; right: 10px; height: 1.5px; background: var(--white);
+      transition: transform .35s var(--ease), opacity .25s, top .35s var(--ease);
+    }
+    .menu-toggle span:nth-child(1) { top: 15px; }
+    .menu-toggle span:nth-child(2) { top: 21px; }
+    .menu-toggle span:nth-child(3) { top: 27px; }
+    .menu-open .menu-toggle span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+    .menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+    .menu-open .menu-toggle span:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+    /* =========================================================
+       5. HERO
+       ========================================================= */
+    .hero {
+      position: relative; min-height: 100vh; min-height: 100svh;
+      display: flex; align-items: center;
+      padding: calc(var(--header-h) + 40px) 0 90px;
+      /* Color de respaldo por si la imagen no carga */
+      background: radial-gradient(ellipse at 70% 30%, #2a2419 0%, var(--black) 60%);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      /* 👉 Sustituir por una foto real del salón (p. ej. assets/hero.jpg) */
+      background: url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=2000&q=80") center/cover no-repeat;
+      transform: scale(1.06);
+      animation: heroZoom 18s ease-out forwards;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(15,15,16,.94) 0%, rgba(15,15,16,.78) 45%, rgba(15,15,16,.35) 100%),
+        linear-gradient(0deg, var(--black) 0%, transparent 30%);
+    }
+    @keyframes heroZoom { to { transform: scale(1); } }
+    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+    .hero-title {
+      font-family: var(--font-title); font-weight: 400; color: var(--white);
+      font-size: clamp(2.7rem, 7vw, 5.4rem); line-height: 1.04; margin: 22px 0 24px;
+    }
+    .hero-title em { color: var(--gold-light); font-style: italic; }
+    .hero-text { font-size: clamp(1rem, 1.6vw, 1.15rem); color: #cfcac2; max-width: 540px; margin-bottom: 38px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-rating {
+      display: inline-flex; align-items: center; gap: 14px; margin-top: 46px;
+      padding: 12px 20px 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-pill);
+      background: rgba(255,255,255,.04); backdrop-filter: blur(6px);
+      font-size: .85rem; color: var(--text);
+    }
+    .hero-rating strong { color: var(--white); font-weight: 600; font-size: 1rem; }
+    .stars { color: var(--gold); letter-spacing: 2px; font-size: .95rem; }
+    .scroll-hint {
+      position: absolute; left: 50%; bottom: 28px; z-index: 2; transform: translateX(-50%);
+      width: 26px; height: 42px; border: 1px solid rgba(255,255,255,.35); border-radius: 20px;
+    }
+    .scroll-hint::before {
+      content: ""; position: absolute; left: 50%; top: 8px; width: 3px; height: 8px; margin-left: -1.5px;
+      background: var(--gold); border-radius: 2px; animation: scrollDot 2s infinite;
+    }
+    @keyframes scrollDot { 0% { opacity: 0; transform: translateY(0); } 40% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
+
+    /* =========================================================
+       6. SOBRE NOSOTROS
+       ========================================================= */
+    .about-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(40px, 7vw, 100px); align-items: center; }
+    .about-media { position: relative; }
+    .about-media .img-main {
+      aspect-ratio: 4/5; border-radius: var(--radius); overflow: hidden;
+      background: linear-gradient(160deg, #2b2620, #151515);
+    }
+    .about-media img { width: 100%; height: 100%; object-fit: cover; }
+    .about-media::before {
+      content: ""; position: absolute; inset: -18px 18px 18px -18px;
+      border: 1px solid rgba(197,164,109,.45); border-radius: var(--radius); z-index: -1;
+    }
+    .about-badge {
+      position: absolute; right: -22px; bottom: 36px;
+      background: var(--charcoal); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 22px 26px; text-align: center; box-shadow: 0 24px 50px -20px rgba(0,0,0,.8);
+    }
+    .about-badge .num { font-family: var(--font-title); font-size: 2.6rem; color: var(--gold-light); line-height: 1; }
+    .about-badge .lbl { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+    .about-text p { color: #c9c4bc; margin-bottom: 18px; }
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+    .pillar { padding-top: 18px; border-top: 1px solid var(--line); }
+    .pillar h3 { font-family: var(--font-title); font-weight: 500; color: var(--white); font-size: 1.1rem; margin-bottom: 6px; }
+    .pillar p { font-size: .88rem; color: var(--muted); margin: 0; line-height: 1.55; }
+
+    /* =========================================================
+       7. SERVICIOS Y TARIFAS
+       ========================================================= */
+    .services { background: var(--charcoal); }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+    .service-card {
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, var(--charcoal-2), #1b1b1d);
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 40px 38px 34px;
+      transition: transform .45s var(--ease), border-color .45s, box-shadow .45s;
+    }
+    .service-card::before {
+      content: ""; position: absolute; inset: 0 0 auto 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0); transition: transform .6s var(--ease);
+    }
+    .service-card:hover { transform: translateY(-6px); border-color: rgba(197,164,109,.4); box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 54px; height: 54px; border-radius: 50%;
+      display: grid; place-items: center; margin-bottom: 22px;
+      border: 1px solid rgba(197,164,109,.45); color: var(--gold);
+      transition: background .4s, color .4s;
+    }
+    .service-icon svg { width: 24px; height: 24px; }
+    .service-card:hover .service-icon { background: var(--gold); color: var(--black); }
+    .service-card h3 { font-family: var(--font-title); font-weight: 400; font-size: 1.6rem; color: var(--white); margin-bottom: 8px; }
+    .service-card > p { color: var(--muted); font-size: .93rem; margin-bottom: 24px; }
+    .price-list li {
+      display: flex; align-items: baseline; gap: 12px;
+      padding: 12px 0; border-bottom: 1px dashed rgba(255,255,255,.1); font-size: .95rem;
+    }
+    .price-list li:last-child { border-bottom: 0; }
+    .price-list .name { color: var(--text); }
+    .price-list .dots { flex: 1; }
+    .price-list .price { color: var(--gold-light); font-weight: 500; white-space: nowrap; }
+    .price-list .price small { color: var(--muted); font-weight: 300; font-size: .75rem; margin-right: 4px; }
+    .services-note { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 40px; }
+    .services-cta { text-align: center; margin-top: 26px; }
+
+    /* =========================================================
+       8. BANDA CTA
+       ========================================================= */
+    .cta-band {
+      position: relative; padding: clamp(70px, 9vw, 110px) 0; text-align: center; overflow: hidden;
+      background: linear-gradient(135deg, #1d1912, #0f0f10 70%);
+      border-block: 1px solid var(--line);
+    }
+    .cta-band::before {
+      content: ""; position: absolute; width: 520px; height: 520px; border-radius: 50%;
+      left: 50%; top: 50%; transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(197,164,109,.16), transparent 65%);
+    }
+    .cta-band .container { position: relative; }
+    .cta-band h2 { font-family: var(--font-title); font-weight: 400; color: var(--white); font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 14px; }
+    .cta-band h2 em { color: var(--gold-light); }
+    .cta-band p { color: var(--muted); margin-bottom: 32px; }
+    .cta-band .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+    /* =========================================================
+       9. TESTIMONIOS
+       ========================================================= */
+    .rating-summary {
+      display: flex; align-items: center; justify-content: center; gap: 18px; flex-wrap: wrap;
+      margin: -20px auto 54px; color: var(--muted); font-size: .92rem;
+    }
+    .rating-summary .big { font-family: var(--font-title); font-size: 3rem; color: var(--white); line-height: 1; }
+    .rating-summary .stars { font-size: 1.2rem; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testimonial {
+      background: var(--charcoal); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 34px 30px 30px; display: flex; flex-direction: column;
+      transition: transform .4s var(--ease), border-color .4s;
+    }
+    .testimonial:hover { transform: translateY(-4px); border-color: rgba(197,164,109,.35); }
+    .testimonial .quote-mark { font-family: var(--font-title); font-size: 4rem; line-height: .6; color: var(--gold); opacity: .6; height: 28px; }
+    .testimonial blockquote { font-family: var(--font-title); font-style: italic; font-size: 1.08rem; color: var(--text); line-height: 1.65; margin: 14px 0 26px; flex: 1; }
+    .testimonial .author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .avatar {
+      width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-dark)); color: #1a1408;
+      font-weight: 600; font-size: .95rem;
+    }
+    .author-name { color: var(--white); font-weight: 500; font-size: .95rem; line-height: 1.3; }
+    .author-meta { font-size: .78rem; color: var(--muted); }
+    .reviews-link { text-align: center; margin-top: 44px; }
+
+    /* =========================================================
+       10. CONTACTO Y LOCALIZACIÓN
+       ========================================================= */
+    .contact { background: var(--charcoal); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 30px; align-items: stretch; }
+    .contact-card {
+      background: var(--black); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: clamp(28px, 4vw, 44px);
+    }
+    .contact-item { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .contact-item:first-child { padding-top: 0; }
+    .contact-item:last-of-type { border-bottom: 0; }
+    .contact-item .ic {
+      width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
+      display: grid; place-items: center; border: 1px solid rgba(197,164,109,.45); color: var(--gold);
+    }
+    .contact-item .ic svg { width: 19px; height: 19px; }
+    .contact-item h3 { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 4px; }
+    .contact-item p, .contact-item a { color: var(--text); font-size: 1rem; }
+    .contact-item a:hover { color: var(--gold-light); }
+    .hours { width: 100%; border-collapse: collapse; font-size: .93rem; }
+    .hours td { padding: 4px 0; }
+    .hours td:last-child { text-align: right; color: var(--white); }
+    .hours tr.closed td:last-child { color: var(--muted); }
+    .hours tr.today td { color: var(--gold-light); font-weight: 500; }
+    .contact-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 26px; }
+    .map-wrap {
+      border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line);
+      min-height: 420px; background: var(--charcoal-2); position: relative;
+    }
+    .map-wrap iframe {
+      position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+      filter: grayscale(1) invert(.92) contrast(.9) sepia(.12); /* mapa en modo oscuro */
+    }
+
+    /* =========================================================
+       11. FOOTER
+       ========================================================= */
+    .footer { padding: 70px 0 34px; background: var(--black); border-top: 1px solid var(--line); }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; padding-bottom: 44px; border-bottom: 1px solid var(--line); }
+    .footer-brand p { color: var(--muted); max-width: 320px; font-size: .9rem; margin-top: 16px; }
+    .footer-nav { display: flex; gap: 60px; flex-wrap: wrap; }
+    .footer-nav h4 { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
+    .footer-nav li { margin-bottom: 8px; font-size: .9rem; color: var(--muted); }
+    .footer-nav a:hover { color: var(--gold-light); }
+    .socials { display: flex; gap: 12px; margin-top: 22px; }
+    .socials a {
+      width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+      border: 1px solid var(--line); color: var(--text); transition: all .3s;
+    }
+    .socials a:hover { border-color: var(--gold); color: var(--black); background: var(--gold); transform: translateY(-3px); }
+    .socials svg { width: 18px; height: 18px; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 26px; font-size: .8rem; color: var(--muted); }
+
+    /* =========================================================
+       12. BOTÓN FLOTANTE WHATSAPP + BARRA MÓVIL
+       ========================================================= */
+    .wa-float {
+      position: fixed; right: 22px; bottom: 22px; z-index: 90;
+      width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff;
+      display: grid; place-items: center; box-shadow: 0 12px 30px -8px rgba(37,211,102,.6);
+      transition: transform .3s var(--ease);
+    }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 30px; height: 30px; }
+    .wa-float::after {
+      content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid #25d366;
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(1.6); opacity: 0; } }
+
+    .mobile-bar { display: none; }
+
+    /* =========================================================
+       13. ANIMACIONES AL HACER SCROLL
+       ========================================================= */
+    .reveal { opacity: 0; transform: translateY(34px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .1s; } .reveal.d2 { transition-delay: .2s; } .reveal.d3 { transition-delay: .3s; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* =========================================================
+       14. RESPONSIVE
+       ========================================================= */
+    @media (max-width: 1024px) {
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid .testimonial:last-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 900px) {
+      :root { --header-h: 68px; }
+      .menu-toggle { display: block; }
+      .nav-cta.desktop { display: none; }
+      .nav-links {
+        position: fixed; inset: 0; z-index: 110;
+        flex-direction: column; justify-content: center; gap: 28px;
+        background: rgba(15,15,16,.98); backdrop-filter: blur(10px);
+        opacity: 0; visibility: hidden; transition: opacity .4s, visibility .4s;
+      }
+      .nav-links a { font-family: var(--font-title); font-size: 1.9rem; letter-spacing: .02em; }
+      .nav-links .btn { font-family: var(--font-body); font-size: .9rem; margin-top: 14px; }
+      .menu-open .nav-links { opacity: 1; visibility: visible; }
+      .nav-links .mobile-only { display: block; }
+      .menu-open { overflow: hidden; }
+
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-media { max-width: 480px; margin-inline: auto; width: calc(100% - 18px); margin-left: 18px; }
+      .about-badge { right: -8px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .map-wrap { min-height: 340px; }
+
+      /* Barra inferior fija de conversión en móvil */
+      .mobile-bar {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+        position: fixed; inset: auto 0 0 0; z-index: 95;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(15,15,16,.95); backdrop-filter: blur(12px); border-top: 1px solid var(--line);
+        transform: translateY(100%); transition: transform .4s var(--ease);
+      }
+      .mobile-bar.show { transform: none; }
+      .mobile-bar .btn { padding: 13px 10px; font-size: .85rem; }
+      .wa-float { display: none; }
+      body { padding-bottom: 72px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 32px); }
+      .pillars { grid-template-columns: 1fr; gap: 0; }
+      .pillar { padding: 16px 0; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 32px 24px 26px; }
+      .hero-actions .btn { flex: 1 1 100%; }
+      .contact-actions { grid-template-columns: 1fr; }
+      .logo-sub { display: none; }
+      .footer-nav { gap: 36px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       HEADER / NAVEGACIÓN
+       ========================================================= -->
+  <header class="header" id="header">
+    <nav class="container nav" aria-label="Navegación principal">
+      <a href="#inicio" class="logo" aria-label="DHF Estilistas, inicio">
+        <span class="logo-mark">DH<span>F</span></span>
+        <span class="logo-sub">Estilistas</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li class="mobile-only"><a href="#contacto" class="btn btn-gold js-whatsapp" target="_blank" rel="noopener">Reserva tu Cita</a></li>
+      </ul>
+
+      <a href="#contacto" class="btn btn-gold nav-cta desktop js-whatsapp" target="_blank" rel="noopener">Reserva tu Cita</a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="hero" id="inicio">
+      <div class="hero-bg" role="img" aria-label="Interior del salón DHF Estilistas"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow reveal">Peluquería &amp; Belleza · Alcobendas</span>
+          <h1 class="hero-title reveal d1">Tu cabello,<br />nuestra <em>obra maestra</em></h1>
+          <p class="hero-text reveal d2">
+            Cortes a medida, color de autor y tratamientos que devuelven la vida a tu melena.
+            Una experiencia de salón premium, a dos pasos de tu casa.
+          </p>
+          <div class="hero-actions reveal d3">
+            <a href="#contacto" class="btn btn-gold js-whatsapp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
+              Reserva tu Cita
+            </a>
+            <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+          </div>
+          <div class="hero-rating reveal d3">
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span><strong>4,9</strong> · 27 reseñas en Google</span>
+          </div>
+        </div>
+      </div>
+      <a href="#nosotros" class="scroll-hint" aria-label="Bajar a la siguiente sección"></a>
+    </section>
+
+    <!-- =========================================================
+         SOBRE NOSOTROS / FILOSOFÍA
+         ========================================================= -->
+    <section class="section about" id="nosotros">
+      <div class="container about-grid">
+        <div class="about-media reveal">
+          <div class="img-main">
+            <!-- 👉 Sustituir por foto real del equipo o del salón -->
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80"
+                 alt="Estilista trabajando en el salón DHF Estilistas" loading="lazy" width="900" height="1125" />
+          </div>
+          <div class="about-badge">
+            <div class="num">4,9★</div>
+            <div class="lbl">Valoración Google</div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="eyebrow reveal">Nuestra filosofía</span>
+          <h2 class="section-title reveal d1">Estilismo con <em>alma</em>,<br />en el corazón de Alcobendas</h2>
+          <p class="reveal d2">
+            En <strong>DHF Estilistas</strong> creemos que un buen peinado empieza por escucharte. Cada servicio arranca
+            con un diagnóstico personalizado de tu cabello, tu rostro y tu estilo de vida, para crear un look que
+            te represente y que sea fácil de llevar en el día a día.
+          </p>
+          <p class="reveal d2">
+            Nuestro equipo se forma de manera continua en las últimas tendencias de corte y color —balayage,
+            mechas, babylights, tonos fríos o cálidos— y trabaja con productos profesionales que cuidan la
+            salud de la fibra capilar. Nos encontrarás en la <strong>Calle del Fuego, 33</strong>, con el trato cercano
+            de un salón de barrio y el acabado de un estudio de autor.
+          </p>
+
+          <div class="pillars">
+            <div class="pillar reveal d1">
+              <h3>Diagnóstico</h3>
+              <p>Asesoramiento honesto antes de cada corte o color.</p>
+            </div>
+            <div class="pillar reveal d2">
+              <h3>Tendencia</h3>
+              <p>Técnicas actuales y formación constante.</p>
+            </div>
+            <div class="pillar reveal d3">
+              <h3>Cuidado</h3>
+              <p>Productos profesionales que respetan tu cabello.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SERVICIOS Y TARIFAS
+         Precios orientativos para la demo: confirmar con el cliente.
+         ========================================================= -->
+    <section class="section services" id="servicios">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow reveal">Servicios &amp; tarifas</span>
+          <h2 class="section-title reveal d1">Todo lo que tu cabello <em>necesita</em></h2>
+          <p class="section-lead reveal d2">Cada servicio incluye diagnóstico, lavado con productos profesionales y acabado a tu gusto.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Corte y estilo -->
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg>
+            </div>
+            <h3>Corte y Estilo</h3>
+            <p>Cortes pensados para tus facciones y tu rutina, con peinado incluido.</p>
+            <ul class="price-list">
+              <li><span class="name">Corte señora + peinado</span><span class="dots"></span><span class="price"><small>desde</small>30 €</span></li>
+              <li><span class="name">Corte caballero</span><span class="dots"></span><span class="price"><small>desde</small>15 €</span></li>
+              <li><span class="name">Corte niños (hasta 12 años)</span><span class="dots"></span><span class="price"><small>desde</small>12 €</span></li>
+              <li><span class="name">Lavar y peinar / brushing</span><span class="dots"></span><span class="price"><small>desde</small>18 €</span></li>
+            </ul>
+          </article>
+
+          <!-- Coloración -->
+          <article class="service-card reveal d1">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7c3.3 3.9 6 7.3 6 10.8a6 6 0 0 1-12 0c0-3.5 2.7-6.9 6-10.8Z"/><path d="M9 14a3 3 0 0 0 3 3"/></svg>
+            </div>
+            <h3>Coloración Avanzada</h3>
+            <p>Color a medida con técnicas de iluminación natural y máximo cuidado de la fibra.</p>
+            <ul class="price-list">
+              <li><span class="name">Balayage / babylights</span><span class="dots"></span><span class="price"><small>desde</small>85 €</span></li>
+              <li><span class="name">Mechas</span><span class="dots"></span><span class="price"><small>desde</small>55 €</span></li>
+              <li><span class="name">Tinte orgánico / sin amoníaco</span><span class="dots"></span><span class="price"><small>desde</small>40 €</span></li>
+              <li><span class="name">Matiz / baño de color</span><span class="dots"></span><span class="price"><small>desde</small>20 €</span></li>
+            </ul>
+          </article>
+
+          <!-- Tratamientos -->
+          <article class="service-card reveal">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 13.9 8.1 19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9Z"/><path d="M19 17v4M17 19h4"/></svg>
+            </div>
+            <h3>Tratamientos Capilares</h3>
+            <p>Rituales de reparación, brillo y control del encrespamiento para un cabello sano.</p>
+            <ul class="price-list">
+              <li><span class="name">Hidratación profunda</span><span class="dots"></span><span class="price"><small>desde</small>25 €</span></li>
+              <li><span class="name">Alisado de keratina</span><span class="dots"></span><span class="price"><small>desde</small>90 €</span></li>
+              <li><span class="name">Botox capilar / reconstrucción</span><span class="dots"></span><span class="price"><small>desde</small>60 €</span></li>
+              <li><span class="name">Ritual cuero cabelludo</span><span class="dots"></span><span class="price"><small>desde</small>20 €</span></li>
+            </ul>
+          </article>
+
+          <!-- Eventos y bodas -->
+          <article class="service-card reveal d1">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l3 6-9 12L3 9Z"/><path d="M3 9h18M12 21 8 9l4-6 4 6Z"/></svg>
+            </div>
+            <h3>Peinados para Eventos y Bodas</h3>
+            <p>Novias, invitadas y celebraciones: diseñamos tu peinado con prueba previa.</p>
+            <ul class="price-list">
+              <li><span class="name">Recogido / semirrecogido</span><span class="dots"></span><span class="price"><small>desde</small>40 €</span></li>
+              <li><span class="name">Peinado de invitada</span><span class="dots"></span><span class="price"><small>desde</small>35 €</span></li>
+              <li><span class="name">Pack novia (con prueba)</span><span class="dots"></span><span class="price">a consultar</span></li>
+              <li><span class="name">Servicio a domicilio</span><span class="dots"></span><span class="price">a consultar</span></li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="services-note">Precios orientativos. El importe final depende del largo y la densidad del cabello. Te lo confirmamos antes de empezar.</p>
+        <div class="services-cta">
+          <a href="#contacto" class="btn btn-gold js-whatsapp" target="_blank" rel="noopener">Pide tu presupuesto por WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BANDA CTA
+         ========================================================= -->
+    <section class="cta-band">
+      <div class="container">
+        <h2 class="reveal">¿Lista para tu <em>cambio de look</em>?</h2>
+        <p class="reveal d1">Reserva en menos de un minuto. Te respondemos por WhatsApp.</p>
+        <div class="actions reveal d2">
+          <a href="#contacto" class="btn btn-whatsapp js-whatsapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c2.6 1 2.6.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.8 17.7L.2 23.8l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.5Z"/></svg>
+            Reservar por WhatsApp
+          </a>
+          <a href="#contacto" class="btn btn-outline js-tel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+            Llamar ahora
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TESTIMONIOS
+         👉 Textos de muestra para la demo. Antes de publicar,
+            sustituir por reseñas reales copiadas de Google (con permiso).
+         ========================================================= -->
+    <section class="section testimonials" id="opiniones">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow reveal">Opiniones</span>
+          <h2 class="section-title reveal d1">Lo que dicen <em>nuestras clientas</em></h2>
+        </div>
+
+        <div class="rating-summary reveal">
+          <span class="big">4,9</span>
+          <div>
+            <div class="stars" aria-label="4,9 de 5 estrellas">★★★★★</div>
+            <div>Basado en 27 reseñas de Google</div>
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <figure class="testimonial reveal">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <blockquote>Llevaba años buscando a alguien que entendiera lo que quería con mis mechas. El resultado, natural y luminoso, justo lo que buscaba. El trato, de diez.</blockquote>
+            <figcaption class="author">
+              <span class="avatar">L</span>
+              <span><span class="author-name">Laura M.</span><br /><span class="author-meta">Mechas · ★★★★★</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial reveal d1">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <blockquote>Me asesoraron con total sinceridad sobre qué corte me favorecía. Salí encantada y el pelo se peina solo en casa. Ya tengo mi peluquería en Alcobendas.</blockquote>
+            <figcaption class="author">
+              <span class="avatar">C</span>
+              <span><span class="author-name">Carmen R.</span><br /><span class="author-meta">Corte y peinado · ★★★★★</span></span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonial reveal d2">
+            <div class="quote-mark" aria-hidden="true">“</div>
+            <blockquote>Un ambiente muy agradable y profesionales que se nota que disfrutan con lo que hacen. Puntuales, detallistas y con muy buenos productos. Totalmente recomendable.</blockquote>
+            <figcaption class="author">
+              <span class="avatar">J</span>
+              <span><span class="author-name">Javier P.</span><br /><span class="author-meta">Corte caballero · ★★★★★</span></span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="reviews-link reveal">
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=DHF+Estilistas+Calle+del+Fuego+33+Alcobendas" target="_blank" rel="noopener">Ver todas las reseñas en Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CONTACTO Y LOCALIZACIÓN
+         ========================================================= -->
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow reveal">Contacto</span>
+          <h2 class="section-title reveal d1">Te esperamos en <em>Alcobendas</em></h2>
+          <p class="section-lead reveal d2">Reserva por WhatsApp o llámanos. Te buscamos el hueco que mejor te encaje.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <div class="contact-item">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div>
+                <h3>Dirección</h3>
+                <p>Calle del Fuego, 33<br />28100 Alcobendas, Madrid</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg></div>
+              <div>
+                <h3>Teléfono</h3>
+                <a href="#contacto" class="js-tel js-phone-text">Teléfono</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+              <div style="flex:1">
+                <h3>Horario</h3>
+                <!-- 👉 Confirmar horario real con el cliente (se edita en CONFIG, abajo) -->
+                <table class="hours" id="hours"></table>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <a href="#contacto" class="btn btn-whatsapp js-whatsapp" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c2.6 1 2.6.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.8 17.7L.2 23.8l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.5Z"/></svg>
+                WhatsApp
+              </a>
+              <a href="#contacto" class="btn btn-gold js-tel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
+                Llamar
+              </a>
+            </div>
+          </div>
+
+          <!-- Contenedor de Google Maps (embed sin API key) -->
+          <div class="map-wrap reveal d1">
+            <iframe
+              title="Mapa de DHF Estilistas en Calle del Fuego 33, Alcobendas"
+              src="https://maps.google.com/maps?q=DHF%20Estilistas%2C%20Calle%20del%20Fuego%2033%2C%2028100%20Alcobendas&z=16&output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#inicio" class="logo"><span class="logo-mark">DH<span>F</span></span><span class="logo-sub">Estilistas</span></a>
+          <p>Peluquería y salón de belleza en Alcobendas. Corte, color, tratamientos y peinados de evento.</p>
+          <div class="socials">
+            <a href="https://www.instagram.com/dhf.estilistas/" target="_blank" rel="noopener" aria-label="Instagram de DHF Estilistas">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+            </a>
+            <a href="#contacto" class="js-whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp de DHF Estilistas">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c2.6 1 2.6.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.8 17.7L.2 23.8l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.5Z"/></svg>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=DHF+Estilistas+Calle+del+Fuego+33+Alcobendas" target="_blank" rel="noopener" aria-label="DHF Estilistas en Google Maps">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <div>
+            <h4>Navegación</h4>
+            <ul>
+              <li><a href="#nosotros">Nosotros</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#opiniones">Opiniones</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Visítanos</h4>
+            <ul>
+              <li>Calle del Fuego, 33</li>
+              <li>28100 Alcobendas, Madrid</li>
+              <li><a href="#contacto" class="js-tel js-phone-text">Teléfono</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> DHF Estilistas. Todos los derechos reservados.</span>
+        <span>Aviso legal · Privacidad · Cookies</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante WhatsApp (escritorio) -->
+  <a href="#contacto" class="wa-float js-whatsapp" target="_blank" rel="noopener" aria-label="Reservar cita por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8.2 8.2 0 0 1-2.4-1.5 9 9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.5 13.5 0 0 0 5.2 4.6c2.6 1 2.6.7 3.1.6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3ZM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm8.4-18.3A11.8 11.8 0 0 0 1.8 17.7L.2 23.8l6.3-1.6a11.8 11.8 0 0 0 5.6 1.4A11.8 11.8 0 0 0 20.4 3.5Z"/></svg>
+  </a>
+
+  <!-- Barra de conversión fija (móvil) -->
+  <div class="mobile-bar" id="mobile-bar">
+    <a href="#contacto" class="btn btn-outline js-tel">Llamar</a>
+    <a href="#contacto" class="btn btn-whatsapp js-whatsapp" target="_blank" rel="noopener">Reservar cita</a>
+  </div>
+
+  <script>
+    /* =========================================================
+       CONFIG: datos del negocio en un único lugar.
+       👉 Rellenar con el teléfono / WhatsApp y horario reales.
+       ========================================================= */
+    const CONFIG = {
+      phone: "+34600000000",            // formato internacional, sin espacios (para tel:)
+      phoneDisplay: "600 00 00 00",     // como se muestra en pantalla
+      whatsapp: "34600000000",          // sin "+" ni espacios (para wa.me)
+      whatsappMessage: "Hola DHF Estilistas 👋 Me gustaría reservar una cita.",
+      // Horario: índice 0 = domingo … 6 = sábado. null = cerrado.
+      hours: [
+        { day: "Domingo",   time: null },
+        { day: "Lunes",     time: null },
+        { day: "Martes",    time: "10:00 – 20:00" },
+        { day: "Miércoles", time: "10:00 – 20:00" },
+        { day: "Jueves",    time: "10:00 – 20:00" },
+        { day: "Viernes",   time: "10:00 – 20:00" },
+        { day: "Sábado",    time: "09:30 – 14:30" }
+      ]
+    };
+
+    /* ---------- Enlaces de teléfono y WhatsApp ---------- */
+    const waUrl = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`;
+    document.querySelectorAll(".js-whatsapp").forEach(a => (a.href = waUrl));
+    document.querySelectorAll(".js-tel").forEach(a => {
+      a.href = `tel:${CONFIG.phone}`;
+      a.removeAttribute("target");
+    });
+    document.querySelectorAll(".js-phone-text").forEach(a => (a.textContent = CONFIG.phoneDisplay));
+
+    /* ---------- Tabla de horario (resalta el día actual) ---------- */
+    const today = new Date().getDay();
+    const order = [1, 2, 3, 4, 5, 6, 0]; // lunes → domingo
+    document.getElementById("hours").innerHTML = order.map(i => {
+      const h = CONFIG.hours[i];
+      const cls = [h.time ? "" : "closed", i === today ? "today" : ""].join(" ").trim();
+      return `<tr class="${cls}"><td>${h.day}${i === today ? " · hoy" : ""}</td><td>${h.time || "Cerrado"}</td></tr>`;
+    }).join("");
+
+    /* ---------- Año del footer ---------- */
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* ---------- Menú móvil ---------- */
+    const body = document.body;
+    const toggle = document.getElementById("menu-toggle");
+    const setMenu = open => {
+      body.classList.toggle("menu-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    };
+    toggle.addEventListener("click", () => setMenu(!body.classList.contains("menu-open")));
+    document.querySelectorAll("#nav-links a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+    document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
+
+    /* ---------- Header con fondo al hacer scroll + barra móvil ---------- */
+    const header = document.getElementById("header");
+    const mobileBar = document.getElementById("mobile-bar");
+    const onScroll = () => {
+      const y = window.scrollY;
+      header.classList.toggle("scrolled", y > 40);
+      mobileBar.classList.toggle("show", y > window.innerHeight * 0.6);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    /* ---------- Enlace activo según la sección visible ---------- */
+    const navLinks = [...document.querySelectorAll('.nav-links a[href^="#"]:not(.btn)')];
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === `#${entry.target.id}`));
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(s => spy.observe(s));
+
+    /* ---------- Animaciones de aparición ---------- */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => revealObs.observe(el));
+  </script>
+</body>
+</html>
