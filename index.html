@@ -36,6 +36,11 @@
     },
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "27" },
     "sameAs": ["https://www.instagram.com/dhf.estilistas/"],
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "10:00", "closes": "14:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "15:30", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+    ],
     "priceRange": "€€"
   }
   </script>
@@ -365,7 +370,7 @@
     .contact-item p, .contact-item a { color: var(--text); font-size: 1rem; }
     .contact-item a:hover { color: var(--gold-light); }
     .hours { width: 100%; border-collapse: collapse; font-size: .93rem; }
-    .hours td { padding: 4px 0; }
+    .hours td { padding: 5px 0; vertical-align: top; line-height: 1.5; }
     .hours td:last-child { text-align: right; color: var(--white); }
     .hours tr.closed td:last-child { color: var(--muted); }
     .hours tr.today td { color: var(--gold-light); font-weight: 500; }
@@ -784,7 +789,7 @@
               <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
               <div style="flex:1">
                 <h3>Horario</h3>
-                <!-- 👉 Confirmar horario real con el cliente (se edita en CONFIG, abajo) -->
+                <!-- El horario se genera desde CONFIG.hours (abajo) -->
                 <table class="hours" id="hours"></table>
               </div>
             </div>
@@ -877,22 +882,22 @@
   <script>
     /* =========================================================
        CONFIG: datos del negocio en un único lugar.
-       Teléfono / WhatsApp: 642 90 25 72. 👉 Confirmar horario real.
+       Teléfono / WhatsApp: 642 90 25 72 · Horario real del salón.
        ========================================================= */
     const CONFIG = {
       phone: "+34642902572",            // formato internacional, sin espacios (para tel:)
       phoneDisplay: "642 90 25 72",     // como se muestra en pantalla
       whatsapp: "34642902572",          // sin "+" ni espacios (para wa.me)
       whatsappMessage: "Hola DHF Estilistas 👋 Me gustaría reservar una cita.",
-      // Horario: índice 0 = domingo … 6 = sábado. null = cerrado.
+      // Horario: índice 0 = domingo … 6 = sábado. null = cerrado. Cada tramo en una línea.
       hours: [
         { day: "Domingo",   time: null },
         { day: "Lunes",     time: null },
-        { day: "Martes",    time: "10:00 – 20:00" },
-        { day: "Miércoles", time: "10:00 – 20:00" },
-        { day: "Jueves",    time: "10:00 – 20:00" },
-        { day: "Viernes",   time: "10:00 – 20:00" },
-        { day: "Sábado",    time: "09:30 – 14:30" }
+        { day: "Martes",    time: ["10:00 – 14:00", "15:30 – 20:00"] },
+        { day: "Miércoles", time: ["10:00 – 14:00", "15:30 – 20:00"] },
+        { day: "Jueves",    time: ["10:00 – 14:00", "15:30 – 20:00"] },
+        { day: "Viernes",   time: ["10:00 – 14:00", "15:30 – 20:00"] },
+        { day: "Sábado",    time: ["09:00 – 14:00"] }
       ]
     };
 
@@ -911,7 +916,7 @@
     document.getElementById("hours").innerHTML = order.map(i => {
       const h = CONFIG.hours[i];
       const cls = [h.time ? "" : "closed", i === today ? "today" : ""].join(" ").trim();
-      return `<tr class="${cls}"><td>${h.day}${i === today ? " · hoy" : ""}</td><td>${h.time || "Cerrado"}</td></tr>`;
+      return `<tr class="${cls}"><td>${h.day}${i === today ? " · hoy" : ""}</td><td>${h.time ? h.time.join("<br />") : "Cerrado"}</td></tr>`;
     }).join("");
 
     /* ---------- Año del footer ---------- */

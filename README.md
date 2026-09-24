@@ -14,7 +14,7 @@ Todo el sitio está en un solo archivo: `index.html`, con el HTML, el CSS y el J
 | Dato | Dónde se cambia |
 |---|---|
 | Teléfono y WhatsApp | ✅ 642 90 25 72 (en los enlaces del HTML y en `CONFIG`) |
-| Horario de apertura | `CONFIG.hours` |
+| Horario de apertura | ✅ Real (mar–vie 10:00–14:00 y 15:30–20:00 · sáb 9:00–14:00), en `CONFIG.hours` |
 | Precios | sección `#servicios` (ahora son orientativos) |
 | Testimonios | sección `#opiniones` (ahora son textos de muestra: sustituir por reseñas reales de Google) |
 | Fotos | `.hero-bg` y `.about-media img` (ahora de Unsplash: sustituir por fotos del salón o de su Instagram) |
